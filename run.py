@@ -615,7 +615,7 @@ class crack:
 		try:
 			uas = open('ugent.txt','r').read()
 		except (FileNotFoundError,IOError):
-			uas = ("Mozilla/5.0 (Linux; Android 10; DRA-LX9; HMSCore 6.14.0.301) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.88 HuaweiBrowser/14.0.5.303 Mobile Safari/537.36")
+			uas = ("Mozilla/5.0 (Linux; Android 14; BlackBerry KeyOne) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6338.207 Mobile Safari/537.36")
 			open('ugent.txt','w').write(uas)
 		
 		return uas 
