@@ -158,16 +158,19 @@ def menu():
 def activate_licensi():
 	os.system("clear")
 	logo()
-	print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
-	key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
+	try:
+		key = open(".licensi", "r").read().strip()
+	except FileNotFoundError:
+		print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
+		key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
 	if "gets" in key:
-		os.system("xdg-open https://fbkey.ratuerror.com/register/")
+		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
 		activate_licensi()
 	elif "admin" in key:
 		os.system("xdg-open https://wa.me/6287799183568?text=RATU%20COLMEXs....beli%20lisensi%20dooong")
 		activate_licensi()
 	else:
-		gets = requests.get("https://fbkey.ratuerror.com/check.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
+		gets = requests.get("https://licensi.brutefb.my.id/api.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
 		if "error" in gets["status"]:
 			exit(" [×] message: "+gets["msg"]+"\n\n")
 		elif "berlaku" in gets["status"]:
