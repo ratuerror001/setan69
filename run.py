@@ -55,7 +55,6 @@ def jalan(keliling):
 # LOGO
 def logo():
 	time.sleep (0.01)
-	os.system("clear")
 	jalan ('\x1b[1;97m⣿⣿⣿⡇⢩⠘⣴⣿⣥⣤⢦⢁⠄⠉⡄⡇⠛⠛⠛⢛⣭⣾⣿⣿⡏')
 	jalan ('\x1b[1;97m⣿⣿⣿⡇⠹⢇⡹⣿⣿⣛⣓⣿⡿⠞⠑⣱⠄⢀⣴⣿⣿⣿⣿⡟  💕   💖 💖 💞  ✨')
 	jalan ('\x1b[1;97m⣿⣿⣿⣧⣸⡄⣿⣪⡻⣿⠿⠋⠄⠄⣀⣀⢡⣿⣿⣿⣿⡿⠋     💕  ⭐ 💞 ')
@@ -598,6 +597,11 @@ class crack:
 				time.sleep(15)
 		loop+=1
 
+
+
+
+
+
 	# FINISH
 	def hasil(self,ok,cp):
 		if len(ok) != 0 or len(cp) != 0:
@@ -612,7 +616,7 @@ class crack:
 		try:
 			uas = open('ugent.txt','r').read()
 		except (FileNotFoundError,IOError):
-			uas = ("Mozilla/5.0 (Linux; Android 13; sdk_gphone64_x86_64 Build/TE1A.220922.010) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.105 Mobile Safari/537.36 OPX/2.3")
+			uas = ("Mozilla/5.0 (Linux; Android 13; VORTEX HD65 Choice) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.64 Mobile Safari/537.36 Instabridge/22")
 			open('ugent.txt','w').write(uas)
 		
 		return uas 
