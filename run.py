@@ -87,7 +87,7 @@ def login():
 	try:
 		ses = requests.Session()
 		logo()
-		kukis = input(f'\n{P} Masukan cookie anda :{B} ')
+		kukis = input(f'\n{P} Masukan \x1b[1;92mCOOKIE \x1b[1;97manda :{B} ')
 		url_tokB = ses.get('https://www.facebook.com/adsmanager/manage/campaigns',cookies = {"cookie":kukis})
 		ids_tokB = re.search("act=(.*?)&nav_source", url_tokB.text).group(1)
 		con_tokB = ses.get(f'https://www.facebook.com/adsmanager/manage/campaigns?act={ids_tokB}&nav_source=no_referrer', cookies = {"cookie":kukis})
